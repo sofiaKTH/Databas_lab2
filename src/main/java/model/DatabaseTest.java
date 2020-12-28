@@ -1,34 +1,28 @@
-package org.lab2;
-import com.mongodb.*;
+package model;
+
+import com.mongodb.MongoCredential;
 import com.mongodb.client.MongoClient;
 import com.mongodb.client.MongoClients;
 import com.mongodb.client.MongoDatabase;
 
-
-/**
- * Hello world!
- *
- */
-public class App 
-{
-    public static void main( String[] args ) {
-
-        System.out.println( "Hello World!" );
+class DatabaseTest {
+    public static void main(String args[]){
         // Creating a Mongo client
-        MongoClient mongo = MongoClients.create("mongodb://localhost:27017");
+        MongoClient mongo = MongoClients.create("mongodb://host1:27017");
 
         // Creating Credentials
-       /* MongoCredential credential;
+        MongoCredential credential;
         credential = MongoCredential.createCredential("sampleUser", "Test",
                 "password".toCharArray());
-        System.out.println("Connected to the database successfully");*/
+        System.out.println("Connected to the database successfully");
 
         // Accessing the database
         MongoDatabase database = mongo.getDatabase("Test");
-       // System.out.println("Credentials ::"+ credential);
+        System.out.println("Credentials ::"+ credential);
 
         //Creating a collection
-        database.createCollection("prutt");
+        database.createCollection("sampleCollection");
         System.out.println("Collection created successfully");
     }
 }
+
